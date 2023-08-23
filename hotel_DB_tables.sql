@@ -60,35 +60,34 @@ CREATE TABLE room_data (
     room_standard_occupancy INT NOT NULL,
     room_max_occupancy INT NOT NULL,
     room_base_price DOUBLE NOT NULL,
-    room_extra_pp DOUBLE NOT NULL,
+    room_extra_pp DOUBLE,
     PRIMARY KEY (room_type)
 );
 
 ALTER TABLE room ADD FOREIGN KEY (room_type) REFERENCES room_data(room_type);
 
 CREATE TABLE amenity (
-	amenity_id INT,
+	amenity_id INT auto_increment,
     amenity_name VARCHAR(15) NOT NULL,
     PRIMARY KEY (amenity_id)
 );
 
 CREATE TABLE amenity_room (
-		amenity_id INT auto_increment,
+		amenity_id INT,
         room_num INT,
         PRIMARY KEY (amenity_id, room_num),
         FOREIGN KEY (room_num) REFERENCES room(room_num),
         FOREIGN KEY (amenity_id) REFERENCES amenity(amenity_id)
 );
-
-DESC guest_address;
-DESC guest;
-DESC reservation;
-DESC reservation_room;
-DESC room;
-DESC room_data;
-DESC amenity_room;
-DESC amenity;
-
+-- Checking tables
+-- DESC guest_address;
+-- DESC guest;
+-- DESC reservation;
+-- DESC reservation_room;
+-- DESC room;
+-- DESC room_data;
+-- DESC amenity_room;
+-- DESC amenity;
 
 
 
