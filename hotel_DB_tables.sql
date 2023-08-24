@@ -79,15 +79,15 @@ CREATE TABLE amenity_room (
         FOREIGN KEY (room_num) REFERENCES room(room_num),
         FOREIGN KEY (amenity_id) REFERENCES amenity(amenity_id)
 );
--- Checking tables
--- DESC guest_address;
--- DESC guest;
--- DESC reservation;
--- DESC reservation_room;
--- DESC room;
--- DESC room_data;
--- DESC amenity_room;
--- DESC amenity;
-
-
+/*
+Checking tables
+DESC guest_address;
+DESC guest;
+DESC reservation;
+DESC reservation_room;
+DESC room;
+DESC room_data;
+DESC amenity_room;
+DESC amenity; 
+*/
 

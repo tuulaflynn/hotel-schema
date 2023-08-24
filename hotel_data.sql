@@ -139,7 +139,17 @@ INSERT INTO reservation_room(room_num, reservation_id, adults, children, total_p
     (302, 23, 2, 0, 699.96);
 
 
+DELETE FROM reservation_room WHERE reservation_id = 8; 	
+# The where clause above needs to use the forigen key to identify all records accosiated with Jeremiah Pendergrass, 
+# as if the primary key room_reservation_id, was used, there would be at most one record selected
+# but Jeremiah could have booked more than one room, and all of these records from the table need to be deleted.
 
+DELETE FROM reservation WHERE guest_id = 8;		# Using the foreign key to delete all associated records.
+DELETE FROM guest WHERE guest_id = 8; 		# Here I can use the primary key as there is only one record for Jeremiah. 
+DELETE FROM guest_address WHERE guest_address_id = 8;
+
+
+/*
 SELECT * FROM guest_address;
 SELECT * FROM guest;  
 SELECT * FROM reservation;     
@@ -147,4 +157,5 @@ SELECT * FROM reservation_room;
 SELECT * FROM room;
 SELECT * FROM room_data;
 SELECT * FROM amenity_room;
-SELECT * FROM amenity;  
+SELECT * FROM amenity; 
+*/
