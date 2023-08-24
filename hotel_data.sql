@@ -1,6 +1,7 @@
 USE hotel_schema;
 #SHOW TABLES;
 
+# Master table
 INSERT INTO guest_address(guest_address, zip, city, state) VALUES
 	("100 Downton Avenue", "03349", "London", "LB"),
     ("379 Old Shore Street", "51501", "Council Bluffs", "IA"),
@@ -15,6 +16,20 @@ INSERT INTO guest_address(guest_address, zip, city, state) VALUES
 	("939 Linda Rd.", "22015", "Burke", "VA"),
 	("87 Queen St.", "19026", "Drexel Hill", "PA");
     
+# Master table    
+INSERT INTO amenity(amenity_name) VALUES 
+	("Microwave"),
+    ("Refrigerator"),
+    ("Jacuzzi"),
+    ("Oven");
+    
+# Master table
+INSERT INTO room_data VALUES
+	("Single", 2, 2, 149.99, NULL),
+    ("Double", 2, 4, 174.99, 10),
+    ("Suite", 3, 8, 399.99, 20);        
+ 
+ 
 INSERT INTO guest(guest_address_id, first_name, last_name, guest_phone_num) VALUES 
 (1, "Tuula", "Flynn", "(44) 797-0293"),
 (2, "Mack", "Simmer", "(291) 553-0508" ),
@@ -29,8 +44,46 @@ INSERT INTO guest(guest_address_id, first_name, last_name, guest_phone_num) VALU
 (11, "Maritza", "Tilton", "(446) 351-6860" ),
 (12, "Joleen", "Tison", "(231) 893-2755" );
 
-
-SELECT * FROM guest;
+INSERT INTO room VALUES	 # doesn't work as FK is not yet created
+	(201, "Double"),
+    (202, "Double"), 
+    (203, "Double"),
+    (204, "Double"),
+    (205, "Single"),
+    (206, "Single"), 
+    (207, "Single"),
+    (208, "Single"),
+    (301, "Double"),
+    (302, "Double"), 
+    (303, "Double"),
+    (304, "Double"),
+    (305, "Single"),
+    (306, "Single"),
+    (307, "Single"),
+    (308, "Single"),
+    (401, "Suite"),
+    (402, "Suite");
+    
+INSERT INTO amenity_room VALUES  # doesn't work as FK is not yet created
+	(1, 201), (3, 201),
+    (2, 202), 
+    (1, 203), (3, 203), 
+    (2, 204),
+    (1, 205), (2, 205), (3, 205),
+    (1, 206), (2, 206), 
+    (1, 207), (2, 207), (3, 207),
+    (1, 208), (2, 208),
+    (1, 301), (3, 301),
+    (2, 302), 
+    (1, 303), (3, 303), 
+    (2, 304),
+    (1, 305), (2, 305), (3, 305),
+    (1, 306), (2, 306),
+    (1, 307), (2, 307), (3, 307),
+    (1, 308), (2, 308),
+    (1, 401), (2, 401), (4, 401),
+    (1, 402), (2, 402), (4, 402);
+    
 
 INSERT INTO reservation(guest_id, reservation_start, reservation_end) VALUES
 	(2, "2/2/2023", "2/4/2023"),
@@ -56,29 +109,8 @@ INSERT INTO reservation(guest_id, reservation_start, reservation_end) VALUES
     (4, "11/22/2023", "11/25/2023"),
     (2, "11/22/2023", "11/25/2023"),
     (11,"12/24/2023", "12/28/2023");
-    
-SELECT * FROM RESERVATION;
 
-INSERT INTO room VALUES	 # doesn't work as FK is not yet created
-	(201, "Double"),
-    (202, "Double"), 
-    (203, "Double"),
-    (204, "Double"),
-    (205, "Single"),
-    (206, "Single"), 
-    (207, "Single"),
-    (208, "Single"),
-    (301, "Double"),
-    (302, "Double"), 
-    (303, "Double"),
-    (304, "Double"),
-    (305, "Single"),
-    (306, "Single"),
-    (307, "Single"),
-    (308, "Single"),
-    (401, "Suite"),
-    (401, "Suite");
-  
+
 INSERT INTO reservation_room(room_num, reservation_id, adults, children, total_price) VALUES   # doesn't work as FK is not yet created
 	(308, 1, 1, 0, 299.98),
     (203, 2, 2, 0, 999.95),
@@ -108,40 +140,11 @@ INSERT INTO reservation_room(room_num, reservation_id, adults, children, total_p
 
 
 
-
-INSERT INTO amenity(amenity_name) VALUES 
-	("Microwave"),
-    ("Refrigerator"),
-    ("Jacuzzi"),
-    ("Oven");
-
-
-
-INSERT INTO room_data VALUES
-	("Single", 2, 2, 149.99, NULL),
-    ("Double", 2, 4, 174.99, 10),
-    ("Suite", 3, 8, 399.99, 20);
-
-
-INSERT INTO amenity_room VALUES  # doesn't work as FK is not yet created
-	(1, 201), (3, 201),
-    (2, 202), 
-    (1, 203), (3, 203), 
-    (2, 204),
-    (1, 205), (2, 205), (3, 205),
-    (1, 206), (2, 206), 
-    (1, 207), (2, 207), (3, 207),
-    (1, 208), (2, 208),
-    (1, 301), (3, 301),
-    (2, 302), 
-    (1, 303), (3, 303), 
-    (2, 304),
-    (1, 305), (2, 305), (3, 305),
-    (1, 306), (2, 306),
-    (1, 307), (2, 307), (3, 307),
-    (1, 308), (2, 308),
-    (1, 401), (2, 401), (4, 401),
-    (1, 401), (2, 401), (4, 401);
-    
-
-    
+SELECT * FROM guest_address;
+SELECT * FROM guest;  
+SELECT * FROM reservation;     
+SELECT * FROM reservation_room;
+SELECT * FROM room;
+SELECT * FROM room_data;
+SELECT * FROM amenity_room;
+SELECT * FROM amenity;  
