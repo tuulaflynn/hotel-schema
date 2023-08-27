@@ -27,8 +27,8 @@ CREATE TABLE guest (
 CREATE TABLE reservation (
 	reservation_id INT auto_increment,
     guest_id INT NOT NULL,
-    reservation_start VARCHAR(10) NOT NULL,
-    reservation_end VARCHAR(10) NOT NULL,
+    reservation_start DATE NOT NULL,	# Originally had data type VARCHAR(10)  
+    reservation_end DATE NOT NULL,	# Originally had data type VARCHAR(10)  
 	PRIMARY KEY(reservation_id),
     FOREIGN KEY(guest_id) REFERENCES guest(guest_id)
 );

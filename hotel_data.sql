@@ -86,29 +86,29 @@ INSERT INTO amenity_room VALUES  # doesn't work as FK is not yet created
     
 
 INSERT INTO reservation(guest_id, reservation_start, reservation_end) VALUES
-	(2, "2/2/2023", "2/4/2023"),
-    (3, "2/5/2023", "2/10/2023"),
-    (4, "2/22/2023", "2/24/2023"),
-    (5, "3/6/2023", "3/7/2023"),
-    (1, "3/17/2023","3/20/2023"),
-    (6, "3/18/2023", "3/23/2023"),
-    (7, "3/29/2023", "3/31/2023"),
-    (8, "3/31/2023", "4/5/2023"),
-    (9, "4/9/2023", "4/13/2023"),
-    (10, "4/23/2023", "4/24/2023"),
-    (11, "5/30/2023", "6/2/2023"),
-    (12, "6/10/2023", "6/14/2023"),
-    (6, "6/17/2023", "6/18/2023"),
-    (1, "6/28/2023", "7/2/2023"),
-    (9, "7/13/2023", "7/14/2023"),
-    (10, "7/18/2023", "7/21/2023"),
-    (3, "7/28/2023", "7/29/2023"),
-    (3, "8/30/2023", "9/1/2023"),
-    (2, "9/16/2023", "9/17/2023"),
-    (5, "9/13/2023", "9/15/2023"),
-    (4, "11/22/2023", "11/25/2023"),
-    (2, "11/22/2023", "11/25/2023"),
-    (11,"12/24/2023", "12/28/2023");
+	(2, "2023-2-2", "2023-2-4"),
+    (3, "2023-2-5", "2023-2-10"),
+    (4, "2023-2-22", "2023-2-24"),
+    (5, "2023-3-6", "2023-3-7"),
+    (1, "2023-3-17","2023-3-20"),
+    (6, "2023-3-18", "2023-3-23"),
+    (7, "2023-3-29", "2023-3-31"),
+    (8, "2023-3-31", "2023-4-5"),
+    (9, "2023-4-9", "2023-4-13"),
+    (10, "2023-4-23", "2023-4-24"),
+    (11, "2023-5-30", "2023-6-2"),
+    (12, "2023-6-10", "2023-6-14"),
+    (6, "2023-6-17", "2023-6-18"),
+    (1, "2023-6-28", "2023-7-2"),
+    (9, "2023-7-13", "2023-7-14"),
+    (10, "2023-7-18", "2023-7-21"),
+    (3, "2023-7-28", "2023-7-29"),
+    (3, "2023-8-30", "2023-9-1"),
+    (2, "2023-9-16", "2023-9-17"),
+    (5, "2023-9-13", "2023-9-15"),
+    (4, "2023-11-22", "2023-11-25"),
+    (2, "2023-11-22", "2023-11-25"),
+    (11,"2023-12-24", "2023-12-28");
 
 
 INSERT INTO reservation_room(room_num, reservation_id, adults, children, total_price) VALUES   # doesn't work as FK is not yet created
@@ -138,7 +138,6 @@ INSERT INTO reservation_room(room_num, reservation_id, adults, children, total_p
     (301, 22, 2, 2, 599.97),
     (302, 23, 2, 0, 699.96);
 
-
 DELETE FROM reservation_room WHERE reservation_id = 8; 	
 # The where clause above needs to use the forigen key to identify all records accosiated with Jeremiah Pendergrass, 
 # as if the primary key room_reservation_id, was used, there would be at most one record selected
@@ -147,7 +146,6 @@ DELETE FROM reservation_room WHERE reservation_id = 8;
 DELETE FROM reservation WHERE guest_id = 8;		# Using the foreign key to delete all associated records.
 DELETE FROM guest WHERE guest_id = 8; 		# Here I can use the primary key as there is only one record for Jeremiah. 
 DELETE FROM guest_address WHERE guest_address_id = 8;
-
 
 /*
 SELECT * FROM guest_address;
